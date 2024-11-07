@@ -11,7 +11,7 @@ import ActivityKit
 struct ContentView: View {
     var body: some View {
         ZStack {
-            Color.black
+            Color(hex: "30343F")
                 .ignoresSafeArea()
             
             VStack(spacing: 40) {
@@ -99,9 +99,10 @@ struct ActivityRow: View {
                 }
             }
         }
-        .padding()
-        .background(Color(hex: "C0C0C0").opacity(0.2))
+        .padding() // C0C0C0
+        .background(Color(hex: "30343F").opacity(1))
         .cornerRadius(12)
+        .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
     }
     
     func startActivity() {
