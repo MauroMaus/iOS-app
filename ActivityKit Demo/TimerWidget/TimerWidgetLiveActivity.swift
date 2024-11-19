@@ -44,13 +44,11 @@ struct TimerWidgetLiveActivity: Widget {
                     // more content
                 }
             } compactLeading: {
-                Text("L")
-                    .foregroundStyle(.red)
+                Image(systemName: "stopwatch")
             } compactTrailing: {
-                Text("T")
-                    .foregroundStyle(.red)
+                Text(context.state.startTime, style: .timer)
             } minimal: {
-                Text("M")
+                Image(systemName: "stopwatch")
             }
         }
     }

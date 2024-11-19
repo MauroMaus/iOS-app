@@ -80,11 +80,12 @@ struct ContentView: View {
                         
                         Image(systemName: "stopwatch")
                             .resizable()
-                            .frame(width: 30, height: 30)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 30)
                             .foregroundColor(.blue)
                         
                         Text("Timer")
-                            .font(.title2.monospaced())
+                            .font(.title2)
                             .padding(.leading, 10)
                         
                         Spacer()
@@ -94,43 +95,45 @@ struct ContentView: View {
                             Button(action: timerStart) {
                                 Image(systemName: "play.circle")
                                     .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .foregroundColor(timerIsRunning ? .gray : .green)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30)
+                                    .foregroundColor(timerIsRunning ? .gray : .blue)
                             }
                             
                             Button(action: timerEvent) {
                                 Image(systemName: "arrow.up.circle")
                                     .resizable()
                                     .frame(width: 30, height: 30)
-                                    .foregroundColor(timerIsRunning ? .purple : .gray)
+                                    .foregroundColor(timerIsRunning ? .blue : .gray)
                             }
                             
                             Button(action: timerStop) {
                                 Image(systemName: "stop.circle")
                                     .resizable()
                                     .frame(width: 30, height: 30)
-                                    .foregroundColor(timerIsRunning ? .red : .gray)
+                                    .foregroundColor(timerIsRunning ? .blue : .gray)
                             }
                         }
-                        .padding(.vertical, 10)
                         
                         Spacer()
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 20)
                     
                     // View that displays timer in a circle
                     ZStack {
                         Circle()
-                            .stroke(lineWidth: 3)
+                            .stroke(lineWidth: 2.5)
                             .foregroundColor(Color.gray)
                             .frame(width: 150, height: 150)
                         
                         // Try unwrapping startTime
                         if let timerStartTime {
                             Text(timerStartTime, style: .timer)
-                                .font(.title.monospaced())
+                                .font(.title)
                         } else {
                             Text("0:00")
-                                .font(.title.monospaced())
+                                .font(.title)
                         }
                     }
                 }
@@ -149,7 +152,7 @@ struct ContentView: View {
                             .foregroundColor(.blue)
                         
                         Text("Delivery")
-                            .font(.title2.monospaced())
+                            .font(.title2)
                             .padding(.leading, 10)
                         
                         Spacer()
@@ -160,27 +163,29 @@ struct ContentView: View {
                                 Image(systemName: "play.circle")
                                     .resizable()
                                     .frame(width: 30, height: 30)
-                                    .foregroundColor(timerIsRunning ? .gray : .green)
+                                    .foregroundColor(.blue)
                             }
                             
                             Button(action: {print("Timer update")}) {
                                 Image(systemName: "arrow.up.circle")
                                     .resizable()
                                     .frame(width: 30, height: 30)
-                                    .foregroundColor(timerIsRunning ? .purple : .gray)
+                                    .foregroundColor(.blue)
                             }
                             
                             Button(action: {print("Timer stop")}) {
                                 Image(systemName: "stop.circle")
                                     .resizable()
                                     .frame(width: 30, height: 30)
-                                    .foregroundColor(timerIsRunning ? .red : .gray)
+                                    .foregroundColor(.blue)
                             }
                         }
-                        .padding(.vertical, 10)
                         
                         Spacer()
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 20)
+
                 }
                 
                 Spacer()
