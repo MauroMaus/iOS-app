@@ -37,42 +37,25 @@ struct TimerWidgetLiveActivity: Widget {
                     Text("Leading")
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
                 }
                 DynamicIslandExpandedRegion(.bottom) {
                     Text("Bottom")
                     // more content
                 }
             } compactLeading: {
-                Image(systemName: "stopwatch")
+                    Text(context.state.startTime, style: .timer)
+                    .frame(maxWidth: 50, maxHeight: .infinity, alignment: .trailing)
+                    .padding(.leading, 5)
+                    .cornerRadius(44)
             } compactTrailing: {
-                Text(context.state.startTime, style: .timer)
+                Image(systemName: "stopwatch")
+                    .padding(.all, 5)
+                    .cornerRadius(44)
             } minimal: {
                 Image(systemName: "stopwatch")
+                    .padding(.all, 5)
+                    .cornerRadius(44)
             }
         }
     }
-}
-
-extension TimerWidgetAttributes {
-    fileprivate static var preview: TimerWidgetAttributes {
-        TimerWidgetAttributes(name: "World")
-    }
-}
-
-extension TimerWidgetAttributes.ContentState {
-    fileprivate static var smiley: TimerWidgetAttributes.ContentState {
-        TimerWidgetAttributes.ContentState(emoji: "😀")
-     }
-     
-     fileprivate static var starEyes: TimerWidgetAttributes.ContentState {
-         TimerWidgetAttributes.ContentState(emoji: "🤩")
-     }
-}
-
-#Preview("Notification", as: .content, using: TimerWidgetAttributes.preview) {
-   TimerWidgetLiveActivity()
-} contentStates: {
-    TimerWidgetAttributes.ContentState.smiley
-    TimerWidgetAttributes.ContentState.starEyes
 }

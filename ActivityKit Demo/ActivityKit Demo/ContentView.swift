@@ -97,7 +97,7 @@ struct ContentView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 30)
-                                    .foregroundColor(timerIsRunning ? .gray : .blue)
+                                    .foregroundColor(timerIsRunning ? .gray : .green)
                             }
                             
                             Button(action: timerEvent) {
@@ -111,7 +111,7 @@ struct ContentView: View {
                                 Image(systemName: "stop.circle")
                                     .resizable()
                                     .frame(width: 30, height: 30)
-                                    .foregroundColor(timerIsRunning ? .blue : .gray)
+                                    .foregroundColor(timerIsRunning ? .red : .gray)
                             }
                         }
                         
@@ -124,7 +124,6 @@ struct ContentView: View {
                     ZStack {
                         Circle()
                             .stroke(lineWidth: 2.5)
-                            .foregroundColor(Color.gray)
                             .frame(width: 150, height: 150)
                         
                         // Try unwrapping startTime
@@ -143,7 +142,6 @@ struct ContentView: View {
                 // Delivery entry
                 VStack {
                     HStack {
-                        
                         Spacer()
                         
                         Image(systemName: "takeoutbag.and.cup.and.straw")
@@ -192,6 +190,7 @@ struct ContentView: View {
                 
             }
             .navigationTitle("ActivityKit Demo")
+            
         }
     }
 }
